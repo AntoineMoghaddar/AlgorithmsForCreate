@@ -4,7 +4,6 @@ import processing.core.PApplet;
 
 public class RedDot extends PApplet {
 
-
     @Override
     public void settings() {
         size(400, 400);

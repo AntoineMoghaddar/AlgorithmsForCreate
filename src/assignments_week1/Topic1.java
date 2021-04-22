@@ -57,7 +57,6 @@ public class Topic1 extends PApplet {
         int count = 0;
         char[] word;
         Scanner in = new Scanner(System.in);
-        ;
 
         if (arr == null) {
             print("Type in a word below: ");
