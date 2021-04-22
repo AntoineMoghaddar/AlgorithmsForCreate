@@ -180,6 +180,24 @@ public class Topic1 extends PApplet {
         println("The total sum at the end of the trip is " + total);
     }
 
+    //Assignment 1.10
+    public void redDot() {
+        println("Request Filling Screen");
+
+        String[] processingArgs = {"assignments_week1.RedDot"};
+        RedDot gui = new RedDot();
+        PApplet.runSketch(processingArgs, gui);
+    }
+
+    //Assignment 1.11
+    private void BouncingBall() {
+        println("Request bouncing ball");
+
+        String[] processingArgs = {"assignments_week1.BouncingBall"};
+        BouncingBall gui = new BouncingBall();
+        PApplet.runSketch(processingArgs, gui);
+    }
+
     //Assignment 1.2
     public void draw() {
         char[] chars = null;
@@ -190,7 +208,7 @@ public class Topic1 extends PApplet {
 
         int opt = in.nextInt();
 
-        while (opt != -1) {
+        if (opt != -1) {
 
             if (!(opt >= 5)) { // && opt != 6 && opt != 7 && opt != 8
                 println("Is there already a word you have in mind? Type below..\n(Type 'no' if you have no word in mind.)");
@@ -209,15 +227,18 @@ public class Topic1 extends PApplet {
                 case 6 -> sumMultiplesOfFive();
                 case 7 -> sumMultiplesOfThreeAndFive();
                 case 8 -> binaryTransform();
+                case 9 -> redDot();
+                case 10 -> BouncingBall();
                 default -> println("[Error] Not a valid option");
             }
 
             print(assigmentMenu());
             print("Please give your menu choice below: ");
             opt = in.nextInt();
+        } else {
+            print("Have a nice day!");
+            System.exit(2);
         }
-
-        print("Have a nice day!");
     }
 
     public String assigmentMenu() {
@@ -232,6 +253,8 @@ public class Topic1 extends PApplet {
                 "6)\t  (1.4) - Sum the mulitples of 5\n" +
                 "7)\t  (1.5) - Sum the mulitples of 3 and 5\n" +
                 "8)\t  (1.6) - Binary Calculator\n" +
+                "9)\t (1.10) - Red Dot\n" +
+                "10)\t(1.11) - Bouncing Ball\n" +
                 "\n-1) Exit program\n\n";
     }
 
