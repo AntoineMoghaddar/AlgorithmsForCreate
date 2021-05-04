@@ -1,9 +1,16 @@
+int posX, posY;
+
+RedDot() {
+  posX = int(random(0, width));
+  posY = int(random(0, height));
+}
+
 public void settings() {
   size(400, 400);
 }
 
-public void draw() {
+public void display() {
   noStroke();
   fill(255, 0, 0);
-  ellipse((float) Math.random() * 400, (float) Math.random() * 400, 16, 16);
+  ellipse(posY, posY, 16, 16);
 }
