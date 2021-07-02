@@ -1,3 +1,8 @@
+
+//Authors
+//Antoine Moghaddar S1880241
+//Issa Margherita S2563150
+
 //----------------------------------------------------------2.1
 
 //private int[] count = new int[]{0, 0, 0, 0, 0, 0};
@@ -11,7 +16,7 @@
 //}
 
 //void rollDice() {
-//  int i = (int)random(1, 6);
+//  int i = (int)random(1, 7);
 //  count[i-1]++;
 //}
 
@@ -152,41 +157,48 @@
 
 //----------------------------------------------------------2.6
 
-//float xo=0.0, yo = 0.0; //offsets
-//float xi = 0.01, yi = 0.01; //increments
-//float n1, n2;
+//float yo = 0.0; //offsets
 
+//float yi = 0.001; //increments
+//float n1; //float for noise
+
+//float Xposition = 0; //starting position terrain
+//ArrayList<Rects> rs = new ArrayList<Rects>(); 
 
 //void setup() {
 //  size(1500, 500);
 //}
 
 //void draw() {
-//  //terrain
 //  noStroke();
-//  fill(int(random(0,255)));
-//  rect(0, 0, width, height);
+
+//  //terrain
+//  n1 = noise(yo)*height;
+//  yo += yi;
+
+//  fill(0, 150, 0);
+//  noStroke();
+
+//  Xposition += 0.5;
+//  rs.add(new Rects(width+Xposition, n1, 1, 300));
+
+//  for (Rects r : rs) {
+//    r.decreaseW();
+//    r.display();
+//  }
 
 //  //car
 //  fill(100);
-//  ellipse(width/2 + 30, 380, 30, 30);
-//  ellipse(width/2 + 90, 380, 30, 30);
+//  ellipse(width/2 + 30, 400, 30, 30);
+//  ellipse(width/2 + 90, 400, 30, 30);
 //  fill(255, 0, 0);
 //  rect(width/2, 360, 120, 30);
 //  rect(width/2, 330, 80, 50);
 
-//  if (int(random(0, 2)) == 1) {
-//    n1 = noise(xo)*width;
-//    xo += xi;
-//  } else {
-//    n2=noise(yo)*height;
-//    yo += yi;
-//  }
-
+//  //road
 //  fill(150);
-//  rect(n1, n2, 1500, 50);
+//  rect(0, 408, width, 200);
 //}
-
 //----------------------------------------------------------2.7
 
 
@@ -224,46 +236,46 @@
 
 //----------------------------------------------------------2.8
 
-float[][] grid;
-float xi =0.0, yi=0.0, offset;
+//float[][] grid;
+//float xi =0.0, yi=0.0, offset;
 
-void setup() {
-  size(1000, 1000, P3D);
-  background(100);
+//void setup() {
+//  size(1000, 1000, P3D);
+//  background(100);
 
-  fill(50);
-  stroke(255);
-  grid = new float[100][100];
-  frameRate(10);
-}
+//  fill(50);
+//  stroke(255);
+//  grid = new float[100][100];
+//  frameRate(10);
+//}
 
-void draw() {
-  background(10);
+//void draw() {
+//  background(10);
 
-  translate(200, 100);
-  rotateX(PI/5);
+//  translate(200, 100);
+//  rotateX(PI/5);
 
-  offset += 0.1;
-  xi = 0;
+//  offset += 0.1;
+//  xi = 0;
 
-  for (int i = 0; i < grid.length-1; i++) {
-    yi = offset;
-    for (int j = 0; j <grid[i].length-1; j++) {
-      grid[i][j] = map(noise(xi, yi), 0, 1, -120, 120);
-      yi+=0.2;
-    }
-    xi+=0.2;
-  }
+//  for (int i = 0; i < grid.length-1; i++) {
+//    yi = offset;
+//    for (int j = 0; j <grid[i].length-1; j++) {
+//      grid[i][j] = map(noise(xi, yi), 0, 1, -120, 120);
+//      yi+=0.2;
+//    }
+//    xi+=0.2;
+//  }
 
-  //printing the grid
-  for (int i = 0; i < grid.length-1; i++) {
-    beginShape(QUAD_STRIP);
-    for (int j = 0; j < grid[i].length-1; j++) {
-      fill(255);
-      stroke(0);
-      vertex(8*i, j*8, grid[i][j]);
-      vertex(8*i+8, 8*j, grid[i+1][j]);
-    }
-    endShape();
-  }
-}
+//  //printing the grid
+//  for (int i = 0; i < grid.length-1; i++) {
+//    beginShape(QUAD_STRIP);
+//    for (int j = 0; j < grid[i].length-1; j++) {
+//      fill(255);
+//      stroke(0);
+//      vertex(8*i, j*8, grid[i][j]);
+//      vertex(8*i+8, 8*j, grid[i+1][j]);
+//    }
+//    endShape();
+//  }
+//}
